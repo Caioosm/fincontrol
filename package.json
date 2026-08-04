@@ -1,0 +1,49 @@
+{
+  "name": "fincontrol",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Sistema pessoal de controle financeiro",
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @fincontrol/api",
+    "dev:web": "npm run dev -w @fincontrol/web",
+    "build:api": "npm run build -w @fincontrol/api",
+    "build:web": "npm run build -w @fincontrol/web",
+    "lint": "npm run lint -w @fincontrol/api && npm run lint -w @fincontrol/web",
+    "lint:api": "npm run lint -w @fincontrol/api",
+    "lint:web": "npm run lint -w @fincontrol/web",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:migrate": "npm run migration:run -w @fincontrol/api",
+    "db:generate": "npm run migration:generate -w @fincontrol/api",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.66.0",
+    "@typescript-eslint/parser": "^8.66.0",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
