@@ -21,6 +21,7 @@
     "db:down": "docker compose down",
     "db:migrate": "npm run migration:run -w @fincontrol/api",
     "db:generate": "npm run migration:generate -w @fincontrol/api",
+    "db:seed": "npm run seed -w @fincontrol/api",
     "prepare": "husky"
   },
   "lint-staged": {
