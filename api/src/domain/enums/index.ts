@@ -4,3 +4,5 @@ export { TipoConta } from './TipoConta.js';
 export { Recorrencia } from './Recorrencia.js';
 export { CanalNotificacao } from './CanalNotificacao.js';
 export { StatusNotificacao } from './StatusNotificacao.js';
+export { StatusToken } from './StatusToken.js';
+export { CanalLogin } from './CanalLogin.js';
