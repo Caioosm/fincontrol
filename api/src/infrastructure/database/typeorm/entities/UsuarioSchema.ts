@@ -20,8 +20,20 @@ export class UsuarioSchema {
   @Column({ type: 'varchar', length: 20, nullable: true })
   telefone: string | null;
 
-  @Column({ type: 'varchar', length: 255, name: 'senha_hash' })
-  senhaHash: string;
+  @Column({ type: 'varchar', length: 255, name: 'senha_hash', nullable: true })
+  senhaHash: string | null;
+
+  @Column({ type: 'boolean', name: 'email_verificado', default: false })
+  emailVerificado: boolean;
+
+  @Column({ type: 'varchar', length: 100, name: 'google_id', nullable: true, unique: true })
+  googleId: string | null;
+
+  @Column({ type: 'boolean', name: 'mfa_habilitado', default: false })
+  mfaHabilitado: boolean;
+
+  @Column({ type: 'varchar', length: 255, name: 'mfa_secret', nullable: true })
+  mfaSecret: string | null;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
